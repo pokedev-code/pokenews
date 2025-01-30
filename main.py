@@ -4,7 +4,9 @@ from bs4 import BeautifulSoup
 from discord.ext import tasks, commands
 import os
 
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+intents.message_content = True  # Required for message content access
+bot = commands.Bot(command_prefix='!', intents=intents)
 CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL'))
 LAST_CHECKED_FILE = 'last_checked.txt'
 
